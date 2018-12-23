@@ -1,0 +1,19 @@
+#!/bin/bash
+
+
+mkcd () {
+  mkdir -p "$1"
+  cd "$1"
+
+cat <<EOF > $1.sh
+#!/bin/bash
+
+
+
+EOF
+
+chmod +x $1.sh
+
+}
+
+mkcd $1

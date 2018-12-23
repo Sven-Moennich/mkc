@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+mkcd () {
+  mkdir -p "$1"
+  cd "$1"
+
+cat <<EOF > $1.pl
+#!/usr/bin/perl
+
+    use strict;
+    use warnings;
+
+
+
+EOF
+
+chmod +x $1.pl
+
+}
+
+mkcd $1
