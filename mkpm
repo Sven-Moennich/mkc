@@ -1,0 +1,48 @@
+#!/bin/bash
+
+
+mkcd () {
+  mkdir -p "$1/Lano"
+  cd "$1"
+
+cat <<EOF > $1.pl
+#!/usr/bin/perl
+
+    use warnings;
+    use strict;
+
+    use lib '.';
+    use Lano::$1;
+
+
+    my \$greet = Lano::$1->new("Hello, World, Again");
+
+    print \$greet->greetings();
+
+
+EOF
+
+cat <<EOF > Lano/$1.pm
+package Lano::$1;
+use warnings;
+use strict;
+
+sub new {
+    my \$class = shift;
+    my \$self = { greeting => shift, };
+    return bless \$self, \$class;
+}
+
+sub greetings {
+    my \$self = shift;
+    return \$self->{greeting};
+}
+
+1;
+EOF
+
+chmod +x $1.pl
+
+}
+
+mkcd $1
