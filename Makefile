@@ -4,4 +4,6 @@ all:
 	cp mksh /usr/sbin/
 	cp mkgit /usr/sbin/
 	cp mkpm /usr/sbin/
+	cp mkh /usr/sbin/
+	cp mkch /usr/sbin/
 

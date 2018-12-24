@@ -1,0 +1,42 @@
+#!/bin/bash
+
+
+mkcd () {
+  mkdir -p "$1"
+  cd "$1"
+
+cat <<EOF > $1.c
+/* $1 */
+#include <unistd.h>    /* unter Linux/UNIX */
+#include <stdlib.h>    /* unter MS-DOS     */
+#include <stdio.h>
+
+#include "$1.h"
+
+int main (int argc, char *argv[], char *envp[]) {
+
+
+return EXIT_SUCCESS;
+}
+
+EOF
+
+cat <<EOF > $1.h
+#ifndef HEADER_$1
+#define HEADER_$1
+
+
+#endif
+EOF
+
+
+cat <<EOF > Makefile
+all:
+	gcc $1.c -o $1
+
+EOF
+
+
+}
+
+mkcd $1
