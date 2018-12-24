@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+mkcd () {
+
+cat <<EOF > $1.sh
+#!/bin/bash
+
+
+
+EOF
+
+chmod +x $1.sh
+
+}
+
+mkcd $1

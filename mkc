@@ -7,8 +7,8 @@ mkcd () {
 
 cat <<EOF > $1.c
 /* $1 */
-#include <unistd.h>    /* unter Linux/UNIX */
-#include <stdlib.h>    /* unter MS-DOS     */
+#include <unistd.h>
+#include <stdlib.h>
 #include <stdio.h>
 
 

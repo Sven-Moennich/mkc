@@ -2,9 +2,6 @@
 
 
 mkcd () {
-  mkdir -p "$1"
-  cd "$1"
-
 cat <<EOF > $1.c
 /* $1 */
 #include <unistd.h>
@@ -13,11 +10,6 @@ cat <<EOF > $1.c
 
 #include "$1.h"
 
-int main (int argc, char *argv[], char *envp[]) {
-
-
-return EXIT_SUCCESS;
-}
 
 EOF
 
@@ -28,15 +20,6 @@ cat <<EOF > $1.h
 
 #endif
 EOF
-
-
-cat <<EOF > Makefile
-all:
-	gcc $1.c -o $1
-
-EOF
-
-
 }
 
 mkcd $1
