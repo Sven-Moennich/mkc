@@ -6,4 +6,5 @@ all:
 	cp mkpm /usr/sbin/
 	cp mkh /usr/sbin/
 	cp mkch /usr/sbin/
+	cp mkchm /usr/sbin/
 
